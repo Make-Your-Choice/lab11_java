@@ -1,6 +1,8 @@
 public class book_store {
 	special[] spec_offer = new special[10]; //бонусы
-	int n =0;
+	special[][] spec_offer1 = new special[10][10];
+	int n = 0;
+	int m = 0;
 	String title; //название
 	String author; //автор
 	String genre; //основной жанр
@@ -27,6 +29,23 @@ public class book_store {
 		for (int i = 0; i < n; i++)
 		{
 			this.spec_offer[i] = spec_offer[i];
+		}
+	}
+	public book_store(String str1, String str2, String str3, int a, int b, int c, int d, int e, special spec_offer[][]) { //конструктор с параметрами
+		this.title = str1;
+		this.author = str2;
+		this.genre = str3;
+		this.price = a;
+		this.num_stock = b;
+		this.popularity = c;
+		this.n = d;
+		this.m = e;
+		for (int i = 0; i < n; i++)
+		{
+			for (int j = 0; j < m; j++)
+			{
+				this.spec_offer1[i][j] = spec_offer[i][j];
+			}
 		}
 	}
 	public String get_title() { //получение названия
@@ -64,7 +83,7 @@ public class book_store {
 	}
 	void output() { //вывод
 		System.out.println("\nYour book\n");
-		System.out.printf("\nTitle: %s\nAuthor: %s\nGenre: %s\nPrice: %d\nNumber in stock: %d\nPopularity: %d", title, author, genre, price, num_stock, popularity);
+		System.out.printf("\nTitle: %s\nAuthor: %s\nGenre: %s\nPrice: %d\nNumber in stock: %d\nPopularity: %d\n", title, author, genre, price, num_stock, popularity);
 		//System.out.printf("\nNumber of bonuses: ");
 		for(int i = 0; i < n; i++)
 		{
@@ -72,6 +91,17 @@ public class book_store {
 			//System.out.printf("%d ", spec_offer[i].bonus_num);
 		}
 		//System.out.printf("\n");
+	}
+	void output1() { //вывод
+		System.out.println("\nYour book\n");
+		System.out.printf("\nTitle: %s\nAuthor: %s\nGenre: %s\nPrice: %d\nNumber in stock: %d\nPopularity: %d\n", title, author, genre, price, num_stock, popularity);
+		for(int i = 0; i < n; i++)
+		{
+			for(int j = 0; j < m; j++)
+			{
+				spec_offer1[i][j].output();
+			}
+		}
 	}
 	void sell() { //продажа
 		System.out.println("\nPutting book on sale");
@@ -98,6 +128,15 @@ public class book_store {
 		for( int i = 0; i < n; i++)
 		{
 			this.spec_offer[i].reduce_bonus();
+		}
+	}
+	void reduce_bonus1() { //уменьшение числа бонусов
+		for( int i = 0; i < n; i++)
+		{
+			for(int j = 0; j < m; j++)
+			{
+				this.spec_offer1[i][j].reduce_bonus();
+			}
 		}
 	}
 	int predictable_profit() { //подсчет ожидаемой прибыли через функцию
