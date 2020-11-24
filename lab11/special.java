@@ -9,10 +9,10 @@ public class special {
 		this.bonus_num = a;
 		this.continuation = 1;
 	}
-	public void change_bonus_num (int a) {
+	public void change_bonus_num (int a) { //изменение числа бонусов
 		this.bonus_num = a;
 	}
-	public void change_continuation(int a) {
+	public void change_continuation(int a) { //изменение длительности
 		this.continuation = a;
 	}
 	public void output() { //вывод 

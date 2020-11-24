@@ -1,7 +1,7 @@
 public class book_store {
-	special[] spec_offer = new special[10]; //бонусы
-	special[][] spec_offer1 = new special[10][10];
-	int n = 0;
+	special[] spec_offer = new special[10]; //бонусы одномерный массив
+	special[][] spec_offer1 = new special[10][10]; //бонусы двумерный массив
+	int n = 0; //размерности массивов
 	int m = 0;
 	String title; //название
 	String author; //автор
@@ -18,7 +18,7 @@ public class book_store {
 		}
 		System.out.printf("Empty book created\n");
 	}
-	public book_store(String str1, String str2, String str3, int a, int b, int c, int d, special spec_offer[]) { //конструктор с параметрами
+	public book_store(String str1, String str2, String str3, int a, int b, int c, int d, special spec_offer[]) { //конструктор с параметрами для одномерного массива
 		this.title = str1;
 		this.author = str2;
 		this.genre = str3;
@@ -31,7 +31,7 @@ public class book_store {
 			this.spec_offer[i] = spec_offer[i];
 		}
 	}
-	public book_store(String str1, String str2, String str3, int a, int b, int c, int d, int e, special spec_offer[][]) { //конструктор с параметрами
+	public book_store(String str1, String str2, String str3, int a, int b, int c, int d, int e, special spec_offer[][]) { //конструктор с параметрами для двумерного массива
 		this.title = str1;
 		this.author = str2;
 		this.genre = str3;
@@ -81,18 +81,15 @@ public class book_store {
 		popularity = c;
 		n = d;
 	}
-	void output() { //вывод
+	void output() { //вывод для одномерного массива
 		System.out.println("\nYour book\n");
 		System.out.printf("\nTitle: %s\nAuthor: %s\nGenre: %s\nPrice: %d\nNumber in stock: %d\nPopularity: %d\n", title, author, genre, price, num_stock, popularity);
-		//System.out.printf("\nNumber of bonuses: ");
 		for(int i = 0; i < n; i++)
 		{
 			spec_offer[i].output();
-			//System.out.printf("%d ", spec_offer[i].bonus_num);
 		}
-		//System.out.printf("\n");
 	}
-	void output1() { //вывод
+	void output1() { //вывод для двумерного массива
 		System.out.println("\nYour book\n");
 		System.out.printf("\nTitle: %s\nAuthor: %s\nGenre: %s\nPrice: %d\nNumber in stock: %d\nPopularity: %d\n", title, author, genre, price, num_stock, popularity);
 		for(int i = 0; i < n; i++)
@@ -124,13 +121,13 @@ public class book_store {
 		num_stock = num_stock - 4;
 		System.out.println("4 books now stored in archive");
 	}
-	void reduce_bonus() { //уменьшение числа бонусов
+	void reduce_bonus() { //уменьшение числа бонусов для одномерного массива
 		for( int i = 0; i < n; i++)
 		{
 			this.spec_offer[i].reduce_bonus();
 		}
 	}
-	void reduce_bonus1() { //уменьшение числа бонусов
+	void reduce_bonus1() { //уменьшение числа бонусов для двумерного массива
 		for( int i = 0; i < n; i++)
 		{
 			for(int j = 0; j < m; j++)

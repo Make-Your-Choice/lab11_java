@@ -23,8 +23,8 @@ public static boolean isParsable(String s) { //функция для прове�
 		System.out.println("Input information about the 1 book\n"); //ввод информации о книге
 		System.out.printf("Input number of specials: ");
 		n = in.nextInt();
-		special[] spec_offer1 = new special[n];
-		for(int i = 0; i < n; i++)
+		special[] spec_offer1 = new special[n]; //одномерный массив
+		for(int i = 0; i < n; i++) //ввод одномерного массива
 		{
 			spec_offer1[i] = new special(); //вызов конструктора без параметров
 			System.out.printf("\nInput number of bonuses for %d special: ", i + 1);
@@ -101,7 +101,6 @@ public static boolean isParsable(String s) { //функция для прове�
 			}
 		}
 		book_store book1 = new book_store(s1, s2, s3, x, y, z, n, spec_offer1); //вызов конструктора с параметрами
-		//in.close();
 		book1.get_title();
 		book1.get_author();
 		book1.get_genre();
@@ -117,7 +116,7 @@ public static boolean isParsable(String s) { //функция для прове�
 		book1.output();
 		book1.archivate(); //отправка на склад
 		book1.output();
-		book1.reduce_bonus(); //уменьшение количества бонусов
+		book1.reduce_bonus(); //уменьшение количества бонусов для одномерного массива
 		book1.output();
 		a = book1.predictable_profit();
 		System.out.printf("\nPredictable profit (using func): %d", a); //возврат значения через функцию
@@ -133,8 +132,8 @@ public static boolean isParsable(String s) { //функция для прове�
 		System.out.printf("Input number of specials (n and m): ");
 		n = in.nextInt();
 		m = in.nextInt();
-		special[][] spec_offer2 = new special[n][m];
-		for(int i = 0; i < n; i++)
+		special[][] spec_offer2 = new special[n][m]; //двумерный массив
+		for(int i = 0; i < n; i++) //ввод двумерного массива
 		{
 			for(int j = 0; j < m; j++)
 			{
@@ -230,7 +229,7 @@ public static boolean isParsable(String s) { //функция для прове�
 		book2.output1();
 		book2.archivate(); //отправка на склад
 		book2.output1();
-		book2.reduce_bonus1(); //уменьшение количества бонусов
+		book2.reduce_bonus1(); //уменьшение количества бонусов для двумерного массива
 		book2.output1();
 		a = book2.predictable_profit();
 		System.out.printf("\nPredictable profit (using func): %d", a); //возврат значения через функцию
